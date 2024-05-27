@@ -161,8 +161,8 @@ internal class RUMApplicationScope: RUMScope, RUMContextProvider {
             parent: self,
             startTime: context.sdkInitDate,
             startPrecondition: startPrecondition,
-            dependencies: dependencies,
-            hasReplay: context.hasReplay
+            context: context,
+            dependencies: dependencies
         )
 
         lastSessionEndReason = nil
@@ -215,8 +215,8 @@ internal class RUMApplicationScope: RUMScope, RUMContextProvider {
             parent: self,
             startTime: command.time,
             startPrecondition: startPrecondition,
+            context: context,
             dependencies: dependencies,
-            hasReplay: context.hasReplay,
             resumingViewScope: resumingViewScope
         )
         lastActiveView = nil
