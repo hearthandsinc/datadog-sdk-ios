@@ -112,6 +112,9 @@ public struct DatadogContext {
     /// Type-less context baggages.
     public var baggages: [String: FeatureBaggage] = [:]
 
+    /// `true` if the app wants to restrict network usage
+    public var isAppRestrictedModeEnabled = false
+
     // swiftlint:disable function_default_parameter_at_end
     public init(
         site: DatadogSite,
@@ -140,7 +143,8 @@ public struct DatadogContext {
         carrierInfo: CarrierInfo? = nil,
         batteryStatus: BatteryStatus? = nil,
         isLowPowerModeEnabled: Bool = false,
-        baggages: [String: FeatureBaggage] = [:]
+        baggages: [String: FeatureBaggage] = [:],
+        isAppRestrictedModeEnabled: Bool = false
     ) {
         self.site = site
         self.clientToken = clientToken
@@ -169,6 +173,7 @@ public struct DatadogContext {
         self.batteryStatus = batteryStatus
         self.isLowPowerModeEnabled = isLowPowerModeEnabled
         self.baggages = baggages
+        self.isAppRestrictedModeEnabled = isAppRestrictedModeEnabled
     }
     // swiftlint:enable function_default_parameter_at_end
 }

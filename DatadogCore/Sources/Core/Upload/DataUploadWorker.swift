@@ -212,6 +212,8 @@ extension DataUploadConditions.Blocker: CustomStringConvertible {
             return "🔌 Low Power Mode is: enabled"
         case let .networkReachability(description: description):
             return "📡 Network reachability is: " + description
+        case .appRestrictedModeOn:
+            return "🛑 App Restricted Mode is: enabled"
         }
     }
 }

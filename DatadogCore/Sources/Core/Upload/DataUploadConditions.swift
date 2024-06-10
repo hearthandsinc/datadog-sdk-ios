@@ -13,6 +13,7 @@ internal struct DataUploadConditions {
         case battery(level: Int, state: BatteryStatus.State)
         case lowPowerModeOn
         case networkReachability(description: String)
+        case appRestrictedModeOn
     }
 
     struct Constants {
@@ -56,6 +57,10 @@ internal struct DataUploadConditions {
 
         if context.isLowPowerModeEnabled {
             blockers.append(.lowPowerModeOn)
+        }
+
+        if context.isAppRestrictedModeEnabled {
+          blockers.append(.appRestrictedModeOn)
         }
 
         return blockers
